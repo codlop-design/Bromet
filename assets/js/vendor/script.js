@@ -78,14 +78,86 @@ var swiper = new Swiper(".mySwiper", {
 var swiper = new Swiper(".slidr_imgs", {
     slidesPerView: 1,
     spaceBetween: 10,
-     autoplay: {
+    autoplay: {
         delay: 5000,
-         disableOnInteraction: false,
-     },
+        disableOnInteraction: false,
+    },
 
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
 
+});
+
+var swiper = new Swiper(".slidr_products", {
+    slidesPerView: 2,
+    spaceBetween: 10,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+
+});
+
+// كاردات الفيديو بتاع المنتجات
+
+var swiper = new Swiper(".videoes_products", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+});
+
+function getYoutubeEmbed(link) {
+    let videoId = "";
+    if (link.includes("youtube.com/watch?v=")) {
+        videoId = link.split("v=")[1].split("&")[0];
+    } else if (link.includes("youtu.be/")) {
+        videoId = link.split("youtu.be/")[1].split("?")[0];
+    }
+    return "https://www.youtube.com/embed/" + videoId;
+}
+
+document.querySelectorAll(".video-card").forEach(card => {
+    const playBtn = card.querySelector(".play-btn");
+    const videoPopup = card.querySelector(".video-popup");
+    const closeBtn = card.querySelector(".close-btn");
+    const youtubeVideo = card.querySelector(".youtubeVideo");
+    const htmlVideo = card.querySelector(".htmlVideo");
+    const videoSource = card.querySelector(".videoSource");
+    const thumbnail = card.querySelector(".thumbnail");
+
+    const videoLink = card.dataset.src;
+
+    playBtn.addEventListener('click', () => {
+        thumbnail.style.display = 'none';
+        playBtn.style.display = 'none';
+        videoPopup.style.display = 'block';
+
+        if (videoLink.includes("youtube.com") || videoLink.includes("youtu.be")) {
+            youtubeVideo.style.display = 'block';
+            htmlVideo.style.display = 'none';
+            youtubeVideo.src = getYoutubeEmbed(videoLink) + "?autoplay=1";
+        } else {
+            htmlVideo.style.display = 'block';
+            youtubeVideo.style.display = 'none';
+            videoSource.src = videoLink;
+            htmlVideo.load();
+            htmlVideo.play();
+        }
+    });
+
+    closeBtn.addEventListener('click', () => {
+        videoPopup.style.display = 'none';
+        thumbnail.style.display = 'block';
+        playBtn.style.display = 'flex';
+
+        youtubeVideo.src = "";
+        htmlVideo.pause();
+        htmlVideo.currentTime = 0;
+        htmlVideo.style.display = 'none';
+    });
 });
