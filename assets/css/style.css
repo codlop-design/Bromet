@@ -271,6 +271,7 @@ hr {
   background: #fff;
   height: 100vh;
   overflow: auto;
+  border-left: 1px solid #ddd;
 }
 
 .small_side_bar ul {
@@ -300,19 +301,48 @@ hr {
   justify-content: center;
 }
 
-.itms_menue {
+.itms_menue_save_changes {
   position: fixed;
   top: 0;
   right: 50px;
-  border-right: 1px solid #ddd;
   width: 400px;
   min-width: 400px;
+}
+
+.itms_menue {
   height: 100vh;
   overflow: auto;
   z-index: 4;
   background: #fff;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
   transition: right 0.4s ease;
+}
+
+.button_saving_all {
+  position: sticky;
+  /* أو fixed حسب ما تحب */
+  bottom: 0;
+  background: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.saving_all {
+  background: #7cd3c9;
+  color: #1d3f3a;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  opacity: 0.4;
+}
+
+.saving_all.save_all_changes{
+  opacity: 1;
 }
 
 .itms_menue.hidden {
@@ -423,11 +453,13 @@ hr {
   display: flex;
   align-items: center;
   gap: 10px;
+
 }
 
 .dive_elments .div_content .right .bi-justify {
   font-size: 20px;
   padding-right: 10px;
+  cursor: all-scroll;
 }
 
 .icon_titels {
@@ -815,10 +847,10 @@ hr {
 }
 
 .hiden_div {
-  overflow: hidden;
   white-space: nowrap;
   width: 100%;
   background: #FFF0F1;
+  position: relative;
 }
 
 .flex_imges {
@@ -881,8 +913,8 @@ hr {
   width: max-content;
   padding: 2px 5px 2px 20px;
   border-radius: 6px 0px 0px 6px;
-  position: fixed;
-  top: 15.5%;
+  position: absolute;
+  top: -7px;
   z-index: 1;
 }
 
@@ -901,11 +933,7 @@ hr {
   padding: 0px 20px;
 }
 
-.tow_swippers {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+
 
 .swiper_img {
   width: 100%;
@@ -1189,7 +1217,7 @@ hr {
 }
 
 .flex_itme .icon_style.discover {
-    color: #fff;
+  color: #fff;
 }
 
 .div_icon {
@@ -1206,6 +1234,218 @@ hr {
   background: #000;
 }
 
-.discover_div{
+.discover_div {
   margin-top: auto;
+}
+
+.sidebar_of_elment {
+  position: fixed;
+  top: 0;
+  right: 50px;
+  /* border-right: 1px solid #ddd; */
+  width: 400px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 4;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  transition: right 0.4s ease;
+}
+
+.top_div {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 15px 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.all_content {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.icon_div {
+  background: rgb(248 250 252);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+.span_h3 span {
+  color: #000;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.span_h3 h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.main_content {
+  background: #f8fafc;
+  margin: 15px;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  padding: 0px 0px 15px 0px;
+}
+
+.number_icon_remove {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 10px 15px 10px 15px;
+}
+
+.number_icon_remove span {
+  font-size: 18px;
+}
+
+.number_icon_remove .delet_btn {
+  color: crimson;
+  cursor: pointer;
+}
+
+.img_titel {
+  padding: 10px 15px 10px 15px;
+}
+
+.img_titel .hidden_input {
+  display: none;
+}
+
+.img_titel span {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.photoe_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #9c9c9c;
+  background: #f7f6f6;
+  padding: 20px 10px 20px 10px;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.photoe_div.active {
+  padding: 0;
+}
+
+.photoe_div span {
+  font-size: 13px;
+}
+
+#remove_btn {
+  position: absolute;
+  top: -12px;
+  left: -4px;
+  background: crimson;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoe_div.active #remove_btn {
+  display: flex !important;
+}
+
+.input_div_style {
+  padding: 0px 15px 0px 15px;
+}
+
+.input_div_style .label_style {
+  font-size: 14px;
+  padding-bottom: 3px;
+}
+
+.input_div_style .input_style {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 40px;
+  padding-right: 15px;
+}
+
+.input_div_style .input_styl::placeholder {}
+
+.btn_add {
+  border: 0;
+  width: max-content;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: unset;
+  color: #16473b;
+  font-size: 17px;
+}
+
+
+
+.save_changes {
+  flex: 0 0 auto;
+  margin: 15px 15px 30px 15px;
+  background: #76e8cd;
+  border: unset;
+  color: #115b51;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+
+.ref_w {
+  width: 100%;
+}
+
+
+/* خاصة بالسايد بار بتاع مثلا سكشن اعلان متحرك لما ادوس علية المحتوي الخاص بية يظهر مكان السايد بار الاصلي */
+.sidebar_of_elment {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.sidebar_of_elment.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* خاصة بالسايد بار بتاع مثلا سكشن اعلان متحرك لما ادوس علية المحتوي الخاص بية يظهر مكان السايد بار الاصلي */
+
+.photoe_div.active #preview_img {
+  height: 150px;
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.dragging {
+  opacity: 0.5;
+  background: #f0f0f0;
 }

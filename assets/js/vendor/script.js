@@ -44,6 +44,10 @@ overlay.addEventListener("click", () => {
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
+    grid: {
+        rows: 2,
+        fill: "row",
+    },
     spaceBetween: 10,
     autoplay: {
         delay: 5000,
@@ -159,5 +163,59 @@ document.querySelectorAll(".video-card").forEach(card => {
         htmlVideo.pause();
         htmlVideo.currentTime = 0;
         htmlVideo.style.display = 'none';
+    });
+});
+
+const inputFile = document.getElementById("upload_img");
+const previewImg = document.getElementById("preview_img");
+const uploadText = document.getElementById("upload_text");
+const removeBtn = document.getElementById("remove_btn");
+const photoeDiv = document.getElementById("photoe_div");
+inputFile.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+            uploadText.style.display = "none";
+            photoeDiv.classList.add("active");
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+removeBtn.addEventListener("click", function () {
+    previewImg.src = "assets/img/pictures.png";
+    uploadText.style.display = "block";
+    inputFile.value = "";
+    photoeDiv.classList.remove("active");
+});
+
+document.addEventListener("click", function (e) {
+    if (e.target.closest(".delet_btn")) {
+        const mainContent = e.target.closest(".main_content");
+        if (mainContent) {
+            mainContent.remove();
+        }
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector(".sidebar_of_elment");
+    const btn = document.querySelector(".itms_div.advertisment_bar");
+    const closeBtn = document.querySelector(".icon_div");
+    btn.addEventListener("click", () => {
+        sidebar.classList.add("active");
+        document.querySelectorAll(".sidebar_elemnts.active").forEach(el => {
+            el.classList.remove("active");
+        });
+        document.querySelectorAll(".after_closing.active").forEach(el => {
+            el.classList.remove("active");
+        });
+    });
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("active");
     });
 });
