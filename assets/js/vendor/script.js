@@ -219,3 +219,24 @@ document.addEventListener("DOMContentLoaded", function () {
         sidebar.classList.remove("active");
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".dive_elments");
+
+    new Sortable(container, {
+        animation: 150, // يخلي الحركة smooth
+        handle: ".bi-justify", // يعني السحب يتم من خلال الايقونة دي بس
+        ghostClass: "dragging" // كلاس بيتضاف للعنصر اللي بتسحبه
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const advertismentBtn = document.querySelector(".div_content.advertisment_content");
+    const advertismentSidebar = document.querySelector(".sidebar_of_elment.advertisment_section");
+
+    if (advertismentBtn && advertismentSidebar) {
+        advertismentBtn.addEventListener("click", () => {
+            advertismentSidebar.classList.add("active");
+        });
+    }
+});
