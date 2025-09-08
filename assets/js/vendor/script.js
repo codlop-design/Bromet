@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const menu = document.querySelector(".itms_menue");
+const menu = document.querySelector(".itms_menue_save_changes");
 const btnVertical = document.querySelector(".btn_vertical");
 
 // عناصر
@@ -15,11 +15,10 @@ const btnAdd = document.querySelector(".btn_add");
 const btnClose = document.querySelector(".btn_close");
 const overlay = document.querySelector(".after_closing");
 
-// زرار vertical → يخفي الاتنين
 btnVertical.addEventListener("click", () => {
-    menu.classList.toggle("hidden"); // إخفاء/إظهار itms_menue
-    sidebar.classList.remove("active"); // دايمًا اخفي sidebar
-    overlay.classList.remove("active"); // اخفي الـ overlay كمان
+    menu.classList.toggle("hidden");
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
 });
 
 // إظهار (زرار إضافة عنصر)
@@ -166,41 +165,48 @@ document.querySelectorAll(".video-card").forEach(card => {
     });
 });
 
-const inputFile = document.getElementById("upload_img");
-const previewImg = document.getElementById("preview_img");
-const uploadText = document.getElementById("upload_text");
-const removeBtn = document.getElementById("remove_btn");
-const photoeDiv = document.getElementById("photoe_div");
-inputFile.addEventListener("change", function () {
-    const file = this.files[0];
-    if (file) {
-        const reader = new FileReader();
+document.addEventListener("DOMContentLoaded", function () {
+    // لفة على كل photoe_div في الصفحة
+    document.querySelectorAll(".photoe_div").forEach(function (photoeDiv) {
+        const inputFile = photoeDiv.querySelector(".upload_input");
+        const previewImg = photoeDiv.querySelector(".preview_img");
+        const uploadText = photoeDiv.querySelector(".upload_text");
+        const removeBtn = photoeDiv.querySelector(".remove_btn");
 
-        reader.onload = function (e) {
-            previewImg.src = e.target.result;
-            uploadText.style.display = "none";
-            photoeDiv.classList.add("active");
-        };
+        // رفع الصورة
+        inputFile.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImg.src = e.target.result;
+                    uploadText.style.display = "none";
+                    photoeDiv.classList.add("active");
+                };
+                reader.readAsDataURL(file);
+            }
+        });
 
-        reader.readAsDataURL(file);
-    }
-});
+        // حذف الصورة
+        removeBtn.addEventListener("click", function () {
+            previewImg.src = "assets/img/pictures.png";
+            uploadText.style.display = "block";
+            inputFile.value = "";
+            photoeDiv.classList.remove("active");
+        });
+    });
 
-removeBtn.addEventListener("click", function () {
-    previewImg.src = "assets/img/pictures.png";
-    uploadText.style.display = "block";
-    inputFile.value = "";
-    photoeDiv.classList.remove("active");
-});
-
-document.addEventListener("click", function (e) {
-    if (e.target.closest(".delet_btn")) {
-        const mainContent = e.target.closest(".main_content");
-        if (mainContent) {
-            mainContent.remove();
+    // حذف main_content عند الضغط على زرار delete
+    document.addEventListener("click", function (e) {
+        if (e.target.closest(".delet_btn")) {
+            const mainContent = e.target.closest(".main_content");
+            if (mainContent) {
+                mainContent.remove();
+            }
         }
-    }
+    });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector(".sidebar_of_elment");
@@ -231,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const advertismentBtn = document.querySelector(".div_content.advertisment_content");
+    const advertismentBtn = document.querySelector(".div_coloum.advertisment_content");
     const advertismentSidebar = document.querySelector(".sidebar_of_elment.advertisment_section");
 
     if (advertismentBtn && advertismentSidebar) {

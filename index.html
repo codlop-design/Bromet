@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/vendor/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/vendor/select2.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -33,7 +34,6 @@
 
                     </ul>
                 </div>
-
                 <div class="itms_menue_save_changes">
                     <div class="itms_menue">
                         <div class="up_div">
@@ -52,12 +52,12 @@
                             <span class="span_titel">عناصر الصفحة</span>
                             <div class="dive_elments">
                                 <button class="btn_add"><i class="bi bi-plus"></i><span>إضافة عنصر جديد</span></button>
-                                <div class="div_content advertisment_content">
+                                <div class="div_content">
                                     <div class="right">
                                         <i class="bi bi-justify"></i>
                                         <div class="icon_titels">
                                             <i class="bi bi-shop-window"></i>
-                                            <div class="div_coloum">
+                                            <div class="div_coloum advertisment_content">
                                                 <span>سكشن إعلان متحرك</span>
                                                 <p>سكشن إعلان متحرك</p>
                                             </div>
@@ -402,9 +402,8 @@
                     </div>
 
                 </div>
-
                 <!-- سكشن اعلان متحرك -->
-                <div class="sidebar_of_elment advertisment_section">
+                <!-- <div class="sidebar_of_elment advertisment_section">
                     <div class="top_div">
                         <div class="icon_div">
                             <i class="bi bi-arrow-right"></i>
@@ -415,6 +414,15 @@
                         </div>
                     </div>
                     <div class="all_content">
+                        <div class="input_div_style">
+                            <label class="label_style">عنوان كود الخصم</label>
+                            <input type="text" class="input_style" placeholder="اكتب هنا..">
+                        </div>
+
+                        <div class="input_div_style">
+                            <label class="label_style"> كود الخصم</label>
+                            <input type="text" class="input_style" placeholder="اكتب هنا..">
+                        </div>
                         <div class="main_content">
                             <div class="number_icon_remove">
                                 <span>#1</span>
@@ -437,10 +445,8 @@
 
                         <button class="btn_add"><i class="bi bi-plus-lg"></i> إضافة</button>
                     </div>
-                    <div class="save_changes_div">
-                    </div>
                     <button class="save_changes">حفظ التغييرات</button>
-                </div>
+                </div>  -->
                 <!--نهاية سكشن اعلان متحرك -->
 
                 <!-- سكشن سكشن اسليدر صور -->
@@ -468,12 +474,22 @@
                                     <span id="upload_text">ارفع صورة (jpg, jpeg, gif, png, webp)</span>
                                     <button type="button" id="remove_btn">✖</button>
                                 </label>
+
+                                <div class="select_input">
+                                    <label class="label_style">الرابط</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>منتج</option>
+                                        <option value="1">تصنيف</option>
+                                    </select>
+
+                                    <div class="input_div_style">
+                                        <input type="text" class="input_style" placeholder="اكتب هنا..">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <button class="btn_add"><i class="bi bi-plus-lg"></i> إضافة</button>
-                    </div>
-                    <div class="save_changes_div">
                     </div>
                     <button class="save_changes">حفظ التغييرات</button>
                 </div> -->
@@ -504,17 +520,159 @@
                                     <span id="upload_text">ارفع صورة (jpg, jpeg, gif, png, webp)</span>
                                     <button type="button" id="remove_btn">✖</button>
                                 </label>
+
+                                <div class="select_input">
+                                    <label class="label_style">الرابط</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>منتج</option>
+                                        <option value="1">تصنيف</option>
+                                    </select>
+
+                                    <div class="input_div_style">
+                                        <input type="text" class="input_style" placeholder="اكتب هنا..">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <button class="btn_add"><i class="bi bi-plus-lg"></i> إضافة</button>
+                    </div>
+
+                    <button class="save_changes">حفظ التغييرات</button>
+                </div> -->
+                <!--نهاية سكشن اسليدر بنرات -->
+
+                <!-- سكشن وصل حديثا -->
+                <!-- <div class="sidebar_of_elment">
+                    <div class="top_div">
+                        <div class="icon_div">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                        <div class="span_h3">
+                            <span>أنت الآن تقوم بتخصيص</span>
+                            <h3> سكشن وصل حديثا</h3>
+                        </div>
+                    </div>
+                    <div class="all_content">
+                        <div class="main_content">
+                            <div class="img_titel">
+                                <div class="select_input">
+                                    <label class="label_style">الرابط</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>منتج</option>
+                                        <option value="1">تصنيف</option>
+                                    </select>
+
+                                    <div class="input_div_style">
+                                        <input type="text" class="input_style" placeholder="اكتب هنا..">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <button class="save_changes">حفظ التغييرات</button>
+                </div> -->
+                <!-- نهاية سكشن وصل حديثا-->
+
+                <!-- سكشن بانر عريض -->
+                <!-- <div class="sidebar_of_elment">
+                    <div class="top_div">
+                        <div class="icon_div">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                        <div class="span_h3">
+                            <span>أنت الآن تقوم بتخصيص</span>
+                            <h3> سكشن بانر عريض</h3>
+                        </div>
+                    </div>
+                    <div class="all_content">
+                        <div class="main_content">
+                            <div class="img_titel">
+                                <input class="hidden_input" type="file" id="upload_img" accept="image/*">
+                                <span>الصورة</span>
+                                <label for="upload_img" class="photoe_div" id="photoe_div">
+                                    <img id="preview_img" src="assets/img/pictures.png">
+                                    <span id="upload_text">ارفع صورة (jpg, jpeg, gif, png, webp)</span>
+                                    <button type="button" id="remove_btn">✖</button>
+                                </label>
+
+                                <div class="select_input">
+                                    <label class="label_style">الرابط</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>منتج</option>
+                                        <option value="1">تصنيف</option>
+                                    </select>
+
+                                    <div class="input_div_style">
+                                        <input type="text" class="input_style" placeholder="اكتب هنا..">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <button class="btn_add"><i class="bi bi-plus-lg"></i> إضافة</button>
+                    </div>
+
+                    <button class="save_changes">حفظ التغييرات</button>
+                </div> -->
+                <!-- نهاية سكشن بانر عريض -->
+
+                <!-- سكشن فديوهات بعض المنتجات -->
+
+                <div class="sidebar_of_elment">
+                    <div class="top_div">
+                        <div class="icon_div">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                        <div class="span_h3">
+                            <span>أنت الآن تقوم بتخصيص</span>
+                            <h3> سكشن منتجات بفيديو </h3>
+                        </div>
+                    </div>
+                    <div class="all_content">
+                        <div class="main_content">
+                            <div class="number_icon_remove">
+                                <span>#1</span>
+                                <span class="delet_btn"><i class="bi bi-trash3"></i></span>
+                            </div>
+                            <div class="img_titel">
+                                <input class="hidden_input" type="file" id="upload_img" accept="image/*">
+                                <span>الصورة</span>
+                                <label for="upload_img" class="photoe_div" id="photoe_div">
+                                    <img id="preview_img" src="assets/img/pictures.png">
+                                    <span id="upload_text">ارفع صورة (jpg, jpeg, gif, png, webp)</span>
+                                    <button type="button" id="remove_btn">✖</button>
+                                </label>
+
+                                <div class="select_input">
+                                    <label class="label_style">الرابط</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>منتج</option>
+                                        <option value="1">تصنيف</option>
+                                    </select>
+
+                                    <label class="form-label">الاقسام</label>
+                                    <select class="select2-custom">
+                                        <option value="AL">اختر القسم</option>
+                                        <option value="WY">تست</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
                         <button class="btn_add"><i class="bi bi-plus-lg"></i> إضافة</button>
                     </div>
-                    <div class="save_changes_div">
-                    </div>
                     <button class="save_changes">حفظ التغييرات</button>
-                </div> -->
-                <!--نهاية سكشن اسليدر بنرات -->
+                </div>
 
+                <!-- نهاية سكشن فديو بعض المنتجات -->
             </div>
         </div>
 
@@ -1164,6 +1322,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="assets/js/vendor/select2-custom.js"></script>
+    <script src="assets/js/vendor/select2.full.min.js"></script>
+    <script>
+        $(".select2-custom").select2({
+            dir: "rtl"
+        });
+    </script>
     <script src="assets/js/vendor/script.js"></script>
 </body>
 

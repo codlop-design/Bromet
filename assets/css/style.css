@@ -341,12 +341,13 @@ hr {
   opacity: 0.4;
 }
 
-.saving_all.save_all_changes{
+.saving_all.save_all_changes {
   opacity: 1;
 }
 
-.itms_menue.hidden {
+.itms_menue_save_changes.hidden {
   right: -400px;
+  display: none !important;
 }
 
 ::-webkit-scrollbar {
@@ -572,7 +573,7 @@ hr {
 
 .after_closing {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: none;
   background: #00000080;
   z-index: 2;
@@ -1331,6 +1332,7 @@ hr {
 .img_titel span {
   font-size: 14px;
   padding-bottom: 5px;
+  width: 100%;
 }
 
 .photoe_div {
@@ -1388,8 +1390,9 @@ hr {
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 4px;
-  height: 40px;
+  height: 37px;
   padding-right: 15px;
+  font-size: 15px;
 }
 
 .input_div_style .input_styl::placeholder {}
@@ -1448,4 +1451,79 @@ hr {
 .dragging {
   opacity: 0.5;
   background: #f0f0f0;
+}
+
+.select_input {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.select_input .input_div_style {
+  padding: 0;
+}
+
+.select_input .form-select {
+  height: 37px;
+  font-size: 15px;
+  background-position: left .75rem center;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.form-select:focus {
+  border-color: unset;
+  outline: 0;
+  box-shadow: unset;
+  border: 1px solid #ddd;
+}
+
+.select2-container {
+  width: 100% !important;
+}
+
+.select2-container .select2-selection--single {
+  border-radius: 0.25rem !important;
+  border-color: #ced4da !important;
+  height: 38px !important;
+  padding: 5px;
+}
+
+.select2 {
+  max-width: 100%;
+}
+
+.selection .select2-selection {
+  border-radius: .25rem !important;
+}
+
+.select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
+  color: gray;
+  font-size: 14px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 7px !important;
+  left: 10px !important;
+}
+
+.select2-container--default .select2-results__options .select2-results__option[aria-selected="true"] {
+  background-color: #7cbaa8 !important;
+  color: #fff !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #e0e0e0 !important;
+  color: #424242 !important;
+}
+
+.select2-dropdown {
+  border: 1px solid #cfd4da;
+}
+
+.select_input .select2-container {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  height: 36px;
 }
